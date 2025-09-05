@@ -1,0 +1,4 @@
+animate.mp4 filter=lfs diff=lfs merge=lfs -text
+cleaner.mp4LOST[[:space:]]DREAMS[[:space:]]PV2.mp4 filter=lfs diff=lfs merge=lfs -text
+cleaner.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
