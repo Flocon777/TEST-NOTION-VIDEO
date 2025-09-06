@@ -19,5 +19,5 @@ export const getStaticProps = async () => {
 export default function NotionDomainPage(props) {
   return <NotionPage {...props} />
 }
-<video src="/primecuts.mp4" controls width="600" />
+
 
