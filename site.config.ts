@@ -11,14 +11,14 @@ export default siteConfig({
   // basic site info (required)
   name: 'Flocon',
   domain: 'flocon.me',
-  author: 'Travis Fischer',
-  description: '你的个人主页简介',
+  author: 'Flocon',
+  description: '这是一份关于游戏策划的作品集，感谢阅读',
   //name: 'Next.js Notion Starter Kit',
   //domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
   //author: 'Travis Fischer',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  //description: 'Example Next.js Notion Starter Kit Site',
 
   // social usernames (optional)
   //twitter: 'transitive_bs',
