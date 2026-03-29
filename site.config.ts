@@ -9,10 +9,10 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'Flocon'
-  domain: 'flocon.me'
-  description: '你的个人主页简介'
-  rootNotionPageId: '1c49cb8cafac80fb8e50c95095f86a7f'
+  name: 'Flocon',
+  domain: 'flocon.me',
+  description: '你的个人主页简介',
+  rootNotionPageId: '1c49cb8cafac80fb8e50c95095f86a7f',
   //name: 'Next.js Notion Starter Kit',
   //domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
   //author: 'Travis Fischer',
