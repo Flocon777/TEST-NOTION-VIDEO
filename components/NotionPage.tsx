@@ -193,12 +193,15 @@ export function NotionPage({
   }, [site, recordMap, lite])
 
   const keys = Object.keys(recordMap?.block || {})
-  const block = recordMap?.block?.[keys[0]]?.value
+const rawBlock = recordMap?.block?.[keys[0]]
+const block = (
+  rawBlock && 'value' in rawBlock ? rawBlock.value : rawBlock
+) as PageBlock | undefined
 
-  // const isRootPage =
-  //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
-  const isBlogPost =
-    block?.type === 'page' && block?.parent_table === 'collection'
+// const isRootPage =
+//   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
+const isBlogPost =
+  block?.type === 'page' && block?.parent_table === 'collection'
 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
