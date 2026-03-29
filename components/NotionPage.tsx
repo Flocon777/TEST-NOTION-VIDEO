@@ -19,6 +19,7 @@ import type * as types from '@/lib/types'
 import * as config from '@/lib/config'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
+import { getPageBlock } from '@/lib/notion-record'
 import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
@@ -191,13 +192,9 @@ export function NotionPage({
     const searchParams = new URLSearchParams(params)
     return mapPageUrl(site, recordMap, searchParams)
   }, [site, recordMap, lite])
-    
-  const keys = Object.keys(recordMap?.block || {})
-    const rawBlock = recordMap?.block?.[keys[0]]
-      const block = (rawBlock && 'value' in rawBlock
-                     ? rawBlock.value
-                     : rawBlock) as PageBlock | undefined
-  
+
+  const block = recordMap ? (getPageBlock(recordMap) as PageBlock | null) : null
+
   // const isRootPage =
   //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
   const isBlogPost =
