@@ -17,10 +17,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     return { props, revalidate: 10 }
   } catch (err) {
     console.error('page error', domain, rawPageId, err)
-
-    // we don't want to publish the error version of this page, so
-    // let next.js know explicitly that incremental SSG failed
-    throw err
+    return {
+      props: {
+        pageId: rawPageId,
+        error: {
+          statusCode: 500,
+          message: `Unable to load Notion page "${rawPageId}"`
+        }
+      },
+      revalidate: 10
+    }
   }
 }
 
@@ -32,7 +38,17 @@ export async function getStaticPaths() {
     }
   }
 
-  const siteMap = await getSiteMap()
+  let siteMap
+  try {
+    siteMap = await getSiteMap()
+  } catch (err) {
+    console.error('failed to build static paths from notion site map', err)
+
+    return {
+      paths: [],
+      fallback: true
+    }
+  }
 
   const staticPaths = {
     paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
