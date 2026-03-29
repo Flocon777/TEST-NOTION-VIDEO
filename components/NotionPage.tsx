@@ -191,17 +191,17 @@ export function NotionPage({
     const searchParams = new URLSearchParams(params)
     return mapPageUrl(site, recordMap, searchParams)
   }, [site, recordMap, lite])
-
+    
   const keys = Object.keys(recordMap?.block || {})
-const rawBlock = recordMap?.block?.[keys[0]]
-const block = (
-  rawBlock && 'value' in rawBlock ? rawBlock.value : rawBlock
-) as PageBlock | undefined
-
-// const isRootPage =
-//   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
-const isBlogPost =
-  block?.type === 'page' && block?.parent_table === 'collection'
+    const rawBlock = recordMap?.block?.[keys[0]]
+      const block = (rawBlock && 'value' in rawBlock
+                     ? rawBlock.value
+                     : rawBlock) as PageBlock | undefined
+  
+  // const isRootPage =
+  //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
+  const isBlogPost =
+    block?.type === 'page' && block?.parent_table === 'collection'
 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
