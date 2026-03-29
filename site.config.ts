@@ -9,17 +9,21 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'Next.js Notion Starter Kit',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
-  author: 'Travis Fischer',
+  name: 'Flocon'
+  domain: 'flocon.me'
+  description: '你的个人主页简介'
+  rootNotionPageId: '1c49cb8cafac80fb8e50c95095f86a7f'
+  //name: 'Next.js Notion Starter Kit',
+  //domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
+  //author: 'Travis Fischer',
 
   // open graph metadata (optional)
   description: 'Example Next.js Notion Starter Kit Site',
 
   // social usernames (optional)
-  twitter: 'transitive_bs',
-  github: 'transitive-bullshit',
-  linkedin: 'fisch2',
+  //twitter: 'transitive_bs',
+  //github: 'transitive-bullshit',
+  //linkedin: 'fisch2',
   // mastodon: '#', // optional mastodon profile URL, provides link verification
   // newsletter: '#', // optional newsletter URL
   // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
