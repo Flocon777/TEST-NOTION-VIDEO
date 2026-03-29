@@ -12,6 +12,7 @@ import * as config from '@/lib/config'
 import { getSiteMap } from '@/lib/get-site-map'
 import { getSocialImageUrl } from '@/lib/get-social-image-url'
 import { getCanonicalPageUrl } from '@/lib/map-page-url'
+import { getPageBlock } from '@/lib/notion-record'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   if (req.method !== 'GET') {
@@ -39,8 +40,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     const recordMap = siteMap.pageMap[pageId] as ExtendedRecordMap
     if (!recordMap) continue
 
-    const keys = Object.keys(recordMap?.block || {})
-    const block = recordMap?.block?.[keys[0]]?.value
+    const block = getPageBlock(recordMap)
     if (!block) continue
 
     const parentPage = getBlockParentPage(block, recordMap)
